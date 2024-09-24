@@ -1,33 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './styles/App.css'
+import PersonalDetails from './components/PersonalDetails'
+import Education from './components/Education'
+import WorkHistory from './components/WorkHistory'
+import Skills from './components/Skills'
+
+// TO UPDATE CV IN REAL TIME:
+// Lift the state up to the parent component so that both the input field and the display 
+// component can share the same piece of state.
+// Handle the input changes in the parent and pass both the value and the onChange event 
+// handler as props to the child components (the input and the display area).
+
+// A4 Format size: 794 x 1123
 
 function App() {
-  const [count, setCount] = useState(0)
+  // manage some state?
+
+  // Use state to show and hide different cv maker sections
+  // Only one can be opet at a time
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <PersonalDetails/>
+        <Education/>
+        <WorkHistory/>
+        <Skills/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }
