@@ -1,0 +1,6 @@
+.cv-display {
+	/* A4 paper representation */
+	min-width: 595px;
+	height: 842px;
+	background-color: pink;
+}
