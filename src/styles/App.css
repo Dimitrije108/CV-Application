@@ -1,6 +1,27 @@
 #root {
   padding: 2rem;
+  background-color: rgb(151, 151, 151);
+
   display: flex;
+  justify-content: center;
 }
 
+.cv-input-sections {
+  width: 100%;
+  max-width: 400px;
+}
+
+fieldset.inactive {
+  display: flex;
+  align-items: center;
+}
+
+fieldset.inactive > h2 {
+  flex: 1;
+}
+
+.input-cont {
+  display: flex;
+  flex-direction: column;
+}
 
