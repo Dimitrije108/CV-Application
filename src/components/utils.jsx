@@ -7,16 +7,18 @@ export function Input({
   placeholder
 }) {
 	return (
-		<label>
-      {label}
-      {' '}
+    <>
+      <label>
+        {label}
+        {' '}
+      </label>
       <input
-				type={type}
+        type={type}
         name={name}
         value={data}
         onChange={(e) => handleChange(e, name)}
         placeholder={placeholder}
       />
-    </label>
+    </>
 	)
 }

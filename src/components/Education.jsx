@@ -2,36 +2,31 @@ import { Input } from './utils'
 
 export default function Education() {
 	return (
-		<section className="education">
-			<form>
-				<fieldset>
-					<legend>Education</legend>
-					<Input 
-						label={"Degree"}
-					/>
-					<Input 
-						label={"School"}
-					/>
-					<Input 
-						label={"Start date"}
-						type={"month"}
-					/>
-					<Input 
-						label={"End date"}
-						type={"month"}
-					/>
-					<Input 
-						label={"City"}
-					/>
-					<button
-						className="add-education-btn"
-						type="submit"
-					>
-						Add
-          </button>
-				</fieldset>
-			</form>
-		</section>
+		<div className="input-cont">
+			<Input 
+				label={"Degree"}
+			/>
+			<Input 
+				label={"School"}
+			/>
+			<Input 
+				label={"Start date"}
+				type={"month"}
+			/>
+			<Input 
+				label={"End date"}
+				type={"month"}
+			/>
+			<Input 
+				label={"City"}
+			/>
+			<button
+				className="add-education-btn"
+				type="submit"
+			>
+				Add
+			</button>
+		</div>
 	)
 }
 // These inputs aren't synced with CV display

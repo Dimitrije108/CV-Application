@@ -7,40 +7,79 @@ import WorkHistory from './components/WorkHistory'
 import Skills from './components/Skills'
 import CVDisplay from './components/CVDisplay'
 
-import { initPersonalInfo } from './components/initData'
-
-// TO UPDATE CV IN REAL TIME:
-// Lift the state up to the parent component so that both the input field and the display 
-// component can share the same piece of state.
-// Handle the input changes in the parent and pass both the value and the onChange event 
-// handler as props to the child components (the input and the display area).
+import { initPersonalDetails } from './components/initData'
 
 export default function App() {
-  const [personalInfo, setPersonalInfo] = useState(initPersonalInfo);
+  const [personalDetails, setPersonalDetails] = useState(initPersonalDetails);
+  const [activeInputSection, setActiveInputSection] = useState(0);
 
-  function handlePersonalInfo(e, name) {
-    setPersonalInfo({
-      ...personalInfo,
+  function handlePersonalDetails(e, name) {
+    setPersonalDetails({
+      ...personalDetails,
       [name]: e.target.value,
     })
   }
 
-  // Use state to show and hide different cv maker sections
-  // Only one can be opet at a time
   return (
     <>
-      <div>
-        <PersonalDetails 
-          data={personalInfo}
-          handleChange={handlePersonalInfo}
-        />
-        <Education/>
-        <WorkHistory/>
-        <Skills/>
-      </div>
+      <section className="cv-input-sections">
+        <InputSection
+          className="personal-details"
+          sectionName="Personal Details"
+          isActive={activeInputSection === 0}
+          onShow={() => setActiveInputSection(0)}
+        >
+          <PersonalDetails
+            data={personalDetails}
+            handleChange={handlePersonalDetails}
+          />
+        </InputSection>
+        <InputSection
+          className="education"
+          sectionName="Education"
+          isActive={activeInputSection === 1}
+          onShow={() => setActiveInputSection(1)}
+        >
+          <Education/>
+        </InputSection>
+        <InputSection
+          className="work-history"
+          sectionName="Work History"
+          isActive={activeInputSection === 2}
+          onShow={() => setActiveInputSection(2)}
+        >
+          <WorkHistory/>
+        </InputSection>
+        <InputSection
+          className="skills"
+          sectionName="Skills"
+          isActive={activeInputSection === 3}
+          onShow={() => setActiveInputSection(3)}
+        >
+          <Skills/>
+        </InputSection>
+      </section>
       <CVDisplay
-        personalData={personalInfo}
+        personalData={personalDetails}
       />
     </>
+  )
+}
+// Display the input section if it is expanded, otherwise display the button
+// to expand the section. No two sections can be expanded at the same time.
+function InputSection({ className, children, sectionName, isActive, onShow }) {
+  return (
+    <section className={className}>
+			<fieldset className={isActive ? "" : "inactive"}>
+				<h2>{sectionName}</h2>
+        {isActive ? (
+          children
+        ) : (
+          <button onClick={onShow}>
+            <img src="/src/assets/plus-icon.svg" alt="" width="30px" height="30px" />
+          </button>
+        )}
+			</fieldset>
+		</section>
   )
 }
