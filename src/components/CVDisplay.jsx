@@ -47,7 +47,7 @@ function CVEducation({ educationList }) {
 	return (
 		<div className="cv-education">
 			{educationList.map((item) => (
-				<div>
+				<div key={item.id}>
 					<h3>{item.degree}</h3>
 					<p>{item.school}</p>
 					<p>{item.city}</p>
@@ -65,7 +65,7 @@ function CVWorkHistory({ workHistoryList }) {
 	return (
 		<div className="cv-work-history">
 			{workHistoryList.map((item) => (
-				<div>
+				<div key={item.id}>
 					<h3>{item.jobTitle}</h3>
 					<p>{item.company}</p>
 					<p>{item.location}</p>
@@ -83,8 +83,8 @@ function CVWorkHistory({ workHistoryList }) {
 function CVSkills({ skillList }) {
 	return (
 		<div className="cv-skills">
-			{skillList.map((skill) => (
-				<p>{skill}</p>
+			{skillList.map((item) => (
+				<div key={item.id}>{item.skill}</div>
 			))}
 		</div>
 	)

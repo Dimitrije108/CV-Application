@@ -2,7 +2,7 @@ export default function SkillsList({ data }) {
 	return (
 		<>
 			{data.map((item) => (
-				<p>{item}</p>
+				<div key={item.id}>{item.skill}</div>
 			))}
 		</>
 	)

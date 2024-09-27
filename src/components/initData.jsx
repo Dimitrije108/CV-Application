@@ -24,6 +24,7 @@ export const initEducationList = [
 		city: "Belgrade",
 		startDate: "2014-10",
 		endDate: "2020-09",
+		id: crypto.randomUUID(),
 	},
 ]
 
@@ -44,13 +45,14 @@ export const initWorkHistoryList = [
 		startDate: "2021-05",
 		endDate: "2022-05",
 		jobDescription: "Help Desk Specialist for Self-Checkout machines",
+		id: crypto.randomUUID(),
 	},
 ]
 
 export const initSkillList = [
-	"HTML",
-	"CSS",
-	"JavaScript",
-	"React",
-	"NodeJS",
+	{ skill: "HTML", id: crypto.randomUUID() },
+	{ skill: "CSS", id: crypto.randomUUID() },
+	{ skill: "JavaScript", id: crypto.randomUUID() },
+	{ skill: "React", id: crypto.randomUUID() },
+	{ skill: "NodeJS", id: crypto.randomUUID() },
 ]

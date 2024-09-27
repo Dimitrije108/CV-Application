@@ -2,7 +2,7 @@ export default function WorkHistoryList({ data }) {
 	return (
 		<>
 			{data.map((obj) => (
-				<div>
+				<div key={obj.id}>
 					<h3>{obj.jobTitle}</h3>
 					<p>{obj.company}</p>
 					<p>{obj.location}</p>

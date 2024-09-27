@@ -46,9 +46,10 @@ export default function App() {
   // Add ID's so that items can be deleted from the list
   // Also: reset education state back to "" after submitting it to the list
   function handleEducationList() {
+    const newEntry = { ...education, id: crypto.randomUUID() }
     setEducationList([
       ...educationList,
-      education,
+      newEntry,
     ])
     setEducation(initEducation)
   }
@@ -62,9 +63,10 @@ export default function App() {
   // Add ID's so that items can be deleted from the list
   // Also: reset education state back to "" after submitting it to the list
   function handleWorkHistoryList() {
+    const newEntry = { ...workHistory, id: crypto.randomUUID() }
     setWorkHistoryList([
       ...workHistoryList,
-      workHistory,
+      newEntry,
     ])
     setWorkHistory(initWorkHistory)
   }
@@ -75,9 +77,10 @@ export default function App() {
   // Add ID's so that items can be deleted from the list
   // Also: reset education state back to "" after submitting it to the list
   function handleSkillList() {
+    const newEntry = { skill: skill, id: crypto.randomUUID() }
     setSkillList([
       ...skillList,
-      skill,
+      newEntry,
     ])
     setSkill("")
   }
