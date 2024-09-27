@@ -46,3 +46,11 @@ export const initWorkHistoryList = [
 		jobDescription: "Help Desk Specialist for Self-Checkout machines",
 	},
 ]
+
+export const initSkillList = [
+	"HTML",
+	"CSS",
+	"JavaScript",
+	"React",
+	"NodeJS",
+]

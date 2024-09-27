@@ -1,6 +1,6 @@
 import '../styles/CVDisplay.css'
 
-export default function CVDisplay({ personalData }) {
+export default function CVDisplay({ personalData, educationList, workHistoryList, skillList }) {
 	return (
 		<section className="cv-display">
 			<div className="cv-personal-details">
@@ -17,15 +17,38 @@ export default function CVDisplay({ personalData }) {
 					{personalData.country || "Serbia"}
 				</div>
 			</div>
-			{/* <div className="cv-education">
-				<CVEducation />
+			<div className="cv-education">
+				{educationList.map((item) => (
+					<div>
+						<h3>{item.degree}</h3>
+						<p>{item.school}</p>
+						<p>{item.city}</p>
+						<div className="education-dates-cont">
+							<div>{item.startDate}</div>
+							<div>{item.endDate}</div>
+						</div>
+					</div>
+				))}
 			</div>
 			<div className="cv-work-history">
-				<CVEWorkHistory />
+				{workHistoryList.map((item) => (
+					<div>
+						<h3>{item.jobTitle}</h3>
+						<p>{item.company}</p>
+						<p>{item.location}</p>
+						<div className="education-dates-cont">
+							<div>{item.startDate}</div>
+							<div>{item.endDate}</div>
+						</div>
+						<p>{item.jobDescription}</p>
+					</div>
+				))}
 			</div>
 			<div className="cv-skills">
-				<CVSkills />
-			</div> */}
+				{skillList.map((skill) => (
+						<p>{skill}</p>
+					))}
+			</div>
 		</section>
 	)
 }

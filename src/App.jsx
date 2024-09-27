@@ -7,6 +7,7 @@ import EducationList from './components/EducationList'
 import WorkHistory from './components/WorkHistory'
 import WorkHistoryList from './components/WorkHistoryList'
 import Skills from './components/Skills'
+import SkillsList from './components/SkillsList'
 import CVDisplay from './components/CVDisplay'
 
 import { 
@@ -15,6 +16,7 @@ import {
   initEducationList,
   initWorkHistory,
   initWorkHistoryList,
+  initSkillList,
 } from './components/initData'
 
 export default function App() {
@@ -25,6 +27,8 @@ export default function App() {
   const [educationList, setEducationList] = useState(initEducationList);
   const [workHistory, setWorkHistory] = useState(initWorkHistory);
   const [workHistoryList, setWorkHistoryList] = useState(initWorkHistoryList);
+  const [skill, setSkill] = useState("");
+  const [skillList, setSkillList] = useState(initSkillList);
 
   function handlePersonalDetails(e, name) {
     setPersonalDetails({
@@ -63,6 +67,19 @@ export default function App() {
       workHistory,
     ])
     setWorkHistory(initWorkHistory)
+  }
+
+  function handleSkill(e) {
+    setSkill(e.target.value)
+  }
+  // Add ID's so that items can be deleted from the list
+  // Also: reset education state back to "" after submitting it to the list
+  function handleSkillList() {
+    setSkillList([
+      ...skillList,
+      skill,
+    ])
+    setSkill("")
   }
 
   return (
@@ -115,11 +132,21 @@ export default function App() {
           isActive={activeInputSection === 3}
           onShow={() => setActiveInputSection(3)}
         >
-          <Skills/>
+          <Skills
+            data={skill}
+            handleChange={handleSkill}
+            handleSubmit={handleSkillList}
+          />
+          <SkillsList
+            data={skillList}
+          />
         </InputSection>
       </section>
       <CVDisplay
         personalData={personalDetails}
+        educationList={educationList}
+        workHistoryList={workHistoryList}
+        skillList={skillList}
       />
     </>
   )
