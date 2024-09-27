@@ -23,15 +23,15 @@ export default function Education({ data, handleChange, handleSubmit }) {
 			/>
 			<Input 
 				label={"Start date"}
-				name={"startDate"}
 				type={"month"}
+				name={"startDate"}
 				data={data.startDate}
 				handleChange={handleChange}
 			/>
 			<Input 
 				label={"End date"}
-				name={"endDate"}
 				type={"month"}
+				name={"endDate"}
 				data={data.endDate}
 				handleChange={handleChange}
 			/>

@@ -5,6 +5,7 @@ import PersonalDetails from './components/PersonalDetails'
 import Education from './components/Education'
 import EducationList from './components/EducationList'
 import WorkHistory from './components/WorkHistory'
+import WorkHistoryList from './components/WorkHistoryList'
 import Skills from './components/Skills'
 import CVDisplay from './components/CVDisplay'
 
@@ -12,6 +13,8 @@ import {
   initPersonalDetails,
   initEducation,
   initEducationList,
+  initWorkHistory,
+  initWorkHistoryList,
 } from './components/initData'
 
 export default function App() {
@@ -20,6 +23,8 @@ export default function App() {
   const [personalDetails, setPersonalDetails] = useState(initPersonalDetails);
   const [education, setEducation] = useState(initEducation);
   const [educationList, setEducationList] = useState(initEducationList);
+  const [workHistory, setWorkHistory] = useState(initWorkHistory);
+  const [workHistoryList, setWorkHistoryList] = useState(initWorkHistoryList);
 
   function handlePersonalDetails(e, name) {
     setPersonalDetails({
@@ -41,6 +46,23 @@ export default function App() {
       ...educationList,
       education,
     ])
+    setEducation(initEducation)
+  }
+
+  function handleWorkHistory(e, name) {
+    setWorkHistory({
+      ...workHistory,
+      [name]: e.target.value,
+    })
+  }
+  // Add ID's so that items can be deleted from the list
+  // Also: reset education state back to "" after submitting it to the list
+  function handleWorkHistoryList() {
+    setWorkHistoryList([
+      ...workHistoryList,
+      workHistory,
+    ])
+    setWorkHistory(initWorkHistory)
   }
 
   return (
@@ -78,7 +100,14 @@ export default function App() {
           isActive={activeInputSection === 2}
           onShow={() => setActiveInputSection(2)}
         >
-          <WorkHistory/>
+          <WorkHistory
+            data={workHistory}
+            handleChange={handleWorkHistory}
+            handleSubmit={handleWorkHistoryList}
+          />
+          <WorkHistoryList
+            data={workHistoryList}
+          />
         </InputSection>
         <InputSection
           className="skills"
