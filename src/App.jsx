@@ -3,21 +3,44 @@ import './styles/App.css'
 
 import PersonalDetails from './components/PersonalDetails'
 import Education from './components/Education'
+import EducationList from './components/EducationList'
 import WorkHistory from './components/WorkHistory'
 import Skills from './components/Skills'
 import CVDisplay from './components/CVDisplay'
 
-import { initPersonalDetails } from './components/initData'
+import { 
+  initPersonalDetails,
+  initEducation,
+  initEducationList,
+} from './components/initData'
 
 export default function App() {
-  const [personalDetails, setPersonalDetails] = useState(initPersonalDetails);
   const [activeInputSection, setActiveInputSection] = useState(0);
+
+  const [personalDetails, setPersonalDetails] = useState(initPersonalDetails);
+  const [education, setEducation] = useState(initEducation);
+  const [educationList, setEducationList] = useState(initEducationList);
 
   function handlePersonalDetails(e, name) {
     setPersonalDetails({
       ...personalDetails,
       [name]: e.target.value,
     })
+  }
+
+  function handleEducation(e, name) {
+    setEducation({
+      ...education,
+      [name]: e.target.value,
+    })
+  }
+  // Add ID's so that items can be deleted from the list
+  // Also: reset education state back to "" after submitting it to the list
+  function handleEducationList() {
+    setEducationList([
+      ...educationList,
+      education,
+    ])
   }
 
   return (
@@ -40,7 +63,14 @@ export default function App() {
           isActive={activeInputSection === 1}
           onShow={() => setActiveInputSection(1)}
         >
-          <Education/>
+          <Education
+            data={education}
+            handleChange={handleEducation}
+            handleSubmit={handleEducationList}
+          />
+          <EducationList
+            data={educationList}
+          />
         </InputSection>
         <InputSection
           className="work-history"

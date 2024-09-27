@@ -1,28 +1,44 @@
 import { Input } from './utils'
 
-export default function Education() {
+export default function Education({ data, handleChange, handleSubmit }) {
 	return (
 		<div className="input-cont">
 			<Input 
 				label={"Degree"}
+				name={"degree"}
+				data={data.degree}
+				handleChange={handleChange}
 			/>
 			<Input 
 				label={"School"}
-			/>
-			<Input 
-				label={"Start date"}
-				type={"month"}
-			/>
-			<Input 
-				label={"End date"}
-				type={"month"}
+				name={"school"}
+				data={data.school}
+				handleChange={handleChange}
 			/>
 			<Input 
 				label={"City"}
+				name={"city"}
+				data={data.city}
+				handleChange={handleChange}
+			/>
+			<Input 
+				label={"Start date"}
+				name={"startDate"}
+				type={"month"}
+				data={data.startDate}
+				handleChange={handleChange}
+			/>
+			<Input 
+				label={"End date"}
+				name={"endDate"}
+				type={"month"}
+				data={data.endDate}
+				handleChange={handleChange}
 			/>
 			<button
 				className="add-education-btn"
 				type="submit"
+				onClick={handleSubmit}
 			>
 				Add
 			</button>
