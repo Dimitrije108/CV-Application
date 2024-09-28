@@ -52,8 +52,8 @@ function CVEducation({ educationList }) {
 					<p>{item.school}</p>
 					<p>{item.city}</p>
 					<div className="education-dates-cont">
-						<div>{item.startDate}</div>
-						<div>{item.endDate}</div>
+						<div>Start date: {item.startDate}</div>
+						<div>End date: {item.endDate}</div>
 					</div>
 				</div>
 			))}
@@ -70,8 +70,8 @@ function CVWorkHistory({ workHistoryList }) {
 					<p>{item.company}</p>
 					<p>{item.location}</p>
 					<div className="education-dates-cont">
-						<div>{item.startDate}</div>
-						<div>{item.endDate}</div>
+						<div>Start date: {item.startDate}</div>
+						<div>End date: {item.endDate}</div>
 					</div>
 					<p>{item.jobDescription}</p>
 				</div>

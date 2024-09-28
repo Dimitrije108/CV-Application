@@ -1,6 +1,14 @@
 import { Input } from './utils'
 
-export default function PersonalDetails({ data, handleChange }) {
+export default function PersonalDetails({ data, setData }) {
+
+	function handleChange(e, name) {
+    setData({
+      ...data,
+      [name]: e.target.value,
+    })
+  }
+	
 	return (
 		<div className="input-cont">
 			<Input

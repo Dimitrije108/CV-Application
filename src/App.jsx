@@ -3,11 +3,8 @@ import './styles/App.css'
 
 import PersonalDetails from './components/PersonalDetails'
 import Education from './components/Education'
-import EducationList from './components/EducationList'
 import WorkHistory from './components/WorkHistory'
-import WorkHistoryList from './components/WorkHistoryList'
 import Skills from './components/Skills'
-import SkillsList from './components/SkillsList'
 import CVDisplay from './components/CVDisplay'
 
 import { 
@@ -21,7 +18,7 @@ import {
 
 export default function App() {
   const [activeInputSection, setActiveInputSection] = useState(0);
-
+  // all input section's states
   const [personalDetails, setPersonalDetails] = useState(initPersonalDetails);
   const [education, setEducation] = useState(initEducation);
   const [educationList, setEducationList] = useState(initEducationList);
@@ -30,92 +27,11 @@ export default function App() {
   const [skill, setSkill] = useState("");
   const [skillList, setSkillList] = useState(initSkillList);
 
-  function handlePersonalDetails(e, name) {
-    setPersonalDetails({
-      ...personalDetails,
-      [name]: e.target.value,
-    })
-  }
-
-  function handleEducation(e, name) {
-    setEducation({
-      ...education,
-      [name]: e.target.value,
-    })
-  }
-  
-  function handleEducationList(e) {
-    e.preventDefault();
-    const newEntry = { ...education, id: crypto.randomUUID() }
-    setEducationList([
-      ...educationList,
-      newEntry,
-    ])
-    setEducation(initEducation)
-  }
-
-  function handleDelEducation(itemId) {
-    setEducationList(
-      educationList.filter(item => item.id !== itemId)
-    )
-  }
-
-  function handleEditEducation(item) {
-    setEducation(item)
-    handleDelEducation(item.id)
-  }
-
-  function handleWorkHistory(e, name) {
-    setWorkHistory({
-      ...workHistory,
-      [name]: e.target.value,
-    })
-  }
-  
-  function handleWorkHistoryList(e) {
-    e.preventDefault();
-    const newEntry = { ...workHistory, id: crypto.randomUUID() }
-    setWorkHistoryList([
-      ...workHistoryList,
-      newEntry,
-    ])
-    setWorkHistory(initWorkHistory)
-  }
-
-  function handleDelWorkHistory(itemId) {
-    setWorkHistoryList(
-      workHistoryList.filter(item => item.id !== itemId)
-    )
-  }
-
-  function handleEditWorkHistory(item) {
-    setWorkHistory(item)
-    handleDelWorkHistory(item.id)
-  }
-
-  function handleSkill(e) {
-    setSkill(e.target.value)
-  }
-  
-  function handleSkillList(e) {
-    e.preventDefault();
-    const newEntry = { skill: skill, id: crypto.randomUUID() }
-    setSkillList([
-      ...skillList,
-      newEntry,
-    ])
-    setSkill("")
-  }
-
-  function handleDelSkill(itemId) {
-    setSkillList(
-      skillList.filter(item => item.id !== itemId)
-    )
-  }
-
   return (
     <>
-      <section className="cv-input-sections">
+      <section className="cv-input-section">
+        <h1>CV Builder</h1>
+        <p>Build your CV by filling out different input sections below! You can view your CV while you build it!</p>
         <InputSection
           className="personal-details"
           sectionName="Personal Details"
@@ -124,7 +40,7 @@ export default function App() {
         >
           <PersonalDetails
             data={personalDetails}
-            handleChange={handlePersonalDetails}
+            setData={setPersonalDetails}
           />
         </InputSection>
         <InputSection
@@ -135,13 +51,9 @@ export default function App() {
         >
           <Education
             data={education}
-            handleChange={handleEducation}
-            handleSubmit={handleEducationList}
-          />
-          <EducationList
-            data={educationList}
-            handleEdit={handleEditEducation}
-            handleDel={handleDelEducation}
+            setData={setEducation}
+            list={educationList}
+            setList={setEducationList}
           />
         </InputSection>
         <InputSection
@@ -152,13 +64,9 @@ export default function App() {
         >
           <WorkHistory
             data={workHistory}
-            handleChange={handleWorkHistory}
-            handleSubmit={handleWorkHistoryList}
-          />
-          <WorkHistoryList
-            data={workHistoryList}
-            handleEdit={handleEditWorkHistory}
-            handleDel={handleDelWorkHistory}
+            setData={setWorkHistory}
+            list={workHistoryList}
+            setList={setWorkHistoryList}
           />
         </InputSection>
         <InputSection
@@ -169,12 +77,9 @@ export default function App() {
         >
           <Skills
             data={skill}
-            handleChange={handleSkill}
-            handleSubmit={handleSkillList}
-          />
-          <SkillsList
-            data={skillList}
-            handleDel={handleDelSkill}
+            setData={setSkill}
+            list={skillList}
+            setList={setSkillList}
           />
         </InputSection>
       </section>
