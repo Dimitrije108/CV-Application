@@ -1,4 +1,4 @@
-export default function EducationList({ data }) {
+export default function EducationList({ data, handleDel }) {
 	return (
 		<>
 			{data.map((obj) => (
@@ -10,6 +10,9 @@ export default function EducationList({ data }) {
 						<div>{obj.startDate}</div>
 						<div>{obj.endDate}</div>
 					</div>
+					<button
+						onClick={() => handleDel(obj.id)}
+					>X</button>
 				</div>
 			))}
 		</>

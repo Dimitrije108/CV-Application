@@ -43,8 +43,7 @@ export default function App() {
       [name]: e.target.value,
     })
   }
-  // Add ID's so that items can be deleted from the list
-  // Also: reset education state back to "" after submitting it to the list
+  
   function handleEducationList() {
     const newEntry = { ...education, id: crypto.randomUUID() }
     setEducationList([
@@ -54,14 +53,19 @@ export default function App() {
     setEducation(initEducation)
   }
 
+  function handleDelEducation(itemId) {
+    setEducationList(
+      educationList.filter(item => item.id !== itemId)
+    )
+  }
+
   function handleWorkHistory(e, name) {
     setWorkHistory({
       ...workHistory,
       [name]: e.target.value,
     })
   }
-  // Add ID's so that items can be deleted from the list
-  // Also: reset education state back to "" after submitting it to the list
+  
   function handleWorkHistoryList() {
     const newEntry = { ...workHistory, id: crypto.randomUUID() }
     setWorkHistoryList([
@@ -71,11 +75,16 @@ export default function App() {
     setWorkHistory(initWorkHistory)
   }
 
+  function handleDelWorkHistory(itemId) {
+    setWorkHistoryList(
+      workHistoryList.filter(item => item.id !== itemId)
+    )
+  }
+
   function handleSkill(e) {
     setSkill(e.target.value)
   }
-  // Add ID's so that items can be deleted from the list
-  // Also: reset education state back to "" after submitting it to the list
+  
   function handleSkillList() {
     const newEntry = { skill: skill, id: crypto.randomUUID() }
     setSkillList([
@@ -83,6 +92,12 @@ export default function App() {
       newEntry,
     ])
     setSkill("")
+  }
+
+  function handleDelSkill(itemId) {
+    setSkillList(
+      skillList.filter(item => item.id !== itemId)
+    )
   }
 
   return (
@@ -112,6 +127,7 @@ export default function App() {
           />
           <EducationList
             data={educationList}
+            handleDel={handleDelEducation}
           />
         </InputSection>
         <InputSection
@@ -127,6 +143,7 @@ export default function App() {
           />
           <WorkHistoryList
             data={workHistoryList}
+            handleDel={handleDelWorkHistory}
           />
         </InputSection>
         <InputSection
@@ -142,6 +159,7 @@ export default function App() {
           />
           <SkillsList
             data={skillList}
+            handleDel={handleDelSkill}
           />
         </InputSection>
       </section>

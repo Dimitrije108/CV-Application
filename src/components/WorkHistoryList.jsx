@@ -1,4 +1,4 @@
-export default function WorkHistoryList({ data }) {
+export default function WorkHistoryList({ data, handleDel }) {
 	return (
 		<>
 			{data.map((obj) => (
@@ -11,6 +11,9 @@ export default function WorkHistoryList({ data }) {
 						<div>{obj.endDate}</div>
 					</div>
 					<p>{obj.jobDescription}</p>
+					<button
+						onClick={() => handleDel(obj.id)}
+					>X</button>
 				</div>
 			))}
 		</>
