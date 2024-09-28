@@ -1,4 +1,4 @@
-export default function SkillsList({ data, handleDel }) {
+export default function SkillsList({ data, handleEdit, handleDel }) {
 	return (
 		<>
 			{data.map((item) => (

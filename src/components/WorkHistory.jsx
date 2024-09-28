@@ -40,8 +40,8 @@ export default function WorkHistory({ data, handleChange, handleSubmit }) {
 			</label>
 			<textarea 
 				name={"jobDescription"}
-				data={data.jobDescription}
-				handleChange={handleChange}
+				value={data.jobDescription}
+				onChange={(e) => handleChange(e, "jobDescription")}
 			/>
 			<button
 				className="add-work-btn"

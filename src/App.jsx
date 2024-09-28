@@ -44,7 +44,8 @@ export default function App() {
     })
   }
   
-  function handleEducationList() {
+  function handleEducationList(e) {
+    e.preventDefault();
     const newEntry = { ...education, id: crypto.randomUUID() }
     setEducationList([
       ...educationList,
@@ -59,6 +60,11 @@ export default function App() {
     )
   }
 
+  function handleEditEducation(item) {
+    setEducation(item)
+    handleDelEducation(item.id)
+  }
+
   function handleWorkHistory(e, name) {
     setWorkHistory({
       ...workHistory,
@@ -66,7 +72,8 @@ export default function App() {
     })
   }
   
-  function handleWorkHistoryList() {
+  function handleWorkHistoryList(e) {
+    e.preventDefault();
     const newEntry = { ...workHistory, id: crypto.randomUUID() }
     setWorkHistoryList([
       ...workHistoryList,
@@ -81,11 +88,17 @@ export default function App() {
     )
   }
 
+  function handleEditWorkHistory(item) {
+    setWorkHistory(item)
+    handleDelWorkHistory(item.id)
+  }
+
   function handleSkill(e) {
     setSkill(e.target.value)
   }
   
-  function handleSkillList() {
+  function handleSkillList(e) {
+    e.preventDefault();
     const newEntry = { skill: skill, id: crypto.randomUUID() }
     setSkillList([
       ...skillList,
@@ -127,6 +140,7 @@ export default function App() {
           />
           <EducationList
             data={educationList}
+            handleEdit={handleEditEducation}
             handleDel={handleDelEducation}
           />
         </InputSection>
@@ -143,6 +157,7 @@ export default function App() {
           />
           <WorkHistoryList
             data={workHistoryList}
+            handleEdit={handleEditWorkHistory}
             handleDel={handleDelWorkHistory}
           />
         </InputSection>

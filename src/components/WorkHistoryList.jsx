@@ -1,18 +1,21 @@
-export default function WorkHistoryList({ data, handleDel }) {
+export default function WorkHistoryList({ data, handleEdit, handleDel }) {
 	return (
 		<>
-			{data.map((obj) => (
-				<div key={obj.id}>
-					<h3>{obj.jobTitle}</h3>
-					<p>{obj.company}</p>
-					<p>{obj.location}</p>
+			{data.map((item) => (
+				<div key={item.id}>
+					<h3>{item.jobTitle}</h3>
+					<p>{item.company}</p>
+					<p>{item.location}</p>
 					<div className="education-dates-cont">
-						<div>{obj.startDate}</div>
-						<div>{obj.endDate}</div>
+						<div>{item.startDate}</div>
+						<div>{item.endDate}</div>
 					</div>
-					<p>{obj.jobDescription}</p>
+					<p>{item.jobDescription}</p>
 					<button
-						onClick={() => handleDel(obj.id)}
+						onClick={() => handleEdit(item)}
+					>Edit</button>
+					<button
+						onClick={() => handleDel(item.id)}
 					>X</button>
 				</div>
 			))}

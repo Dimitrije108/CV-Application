@@ -1,17 +1,20 @@
-export default function EducationList({ data, handleDel }) {
+export default function EducationList({ data, handleEdit, handleDel }) {
 	return (
 		<>
-			{data.map((obj) => (
-				<div key={obj.id}>
-					<h3>{obj.degree}</h3>
-					<p>{obj.school}</p>
-					<p>{obj.city}</p>
+			{data.map((item) => (
+				<div key={item.id}>
+					<h3>{item.degree}</h3>
+					<p>{item.school}</p>
+					<p>{item.city}</p>
 					<div className="education-dates-cont">
-						<div>{obj.startDate}</div>
-						<div>{obj.endDate}</div>
+						<div>{item.startDate}</div>
+						<div>{item.endDate}</div>
 					</div>
 					<button
-						onClick={() => handleDel(obj.id)}
+						onClick={() => handleEdit(item)}
+					>Edit</button>
+					<button
+						onClick={() => handleDel(item.id)}
 					>X</button>
 				</div>
 			))}
