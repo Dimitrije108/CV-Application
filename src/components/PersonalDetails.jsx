@@ -48,20 +48,26 @@ export default function PersonalDetails({ data, setData }) {
 				handleChange={handleChange}
 				placeholder={"065/555-333"}
 			/>
-			<Input
-				label={"City"}
-				name={"city"}
-				data={data.city}
-				handleChange={handleChange}
-				placeholder={"Sombor"}
-			/>
-			<Input
-				label={"Country"}
-				name={"country"}
-				data={data.country}
-				handleChange={handleChange}
-				placeholder={"Serbia"}
-			/>
+			<div className='city-country-cont'>
+				<div className="city-cont">
+					<Input
+						label={"City"}
+						name={"city"}
+						data={data.city}
+						handleChange={handleChange}
+						placeholder={"Sombor"}
+					/>
+				</div>
+				<div className="country-cont">
+					<Input
+						label={"Country"}
+						name={"country"}
+						data={data.country}
+						handleChange={handleChange}
+						placeholder={"Serbia"}
+					/>
+				</div>
+			</div>
 		</div>
 	)
 }

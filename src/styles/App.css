@@ -1,14 +1,48 @@
 #root {
   padding: 2rem;
-  background-color: rgb(151, 151, 151);
+  background-color: #eeeeee;
 
   display: flex;
   justify-content: center;
+  gap: 3rem;
 }
 
-.cv-input-sections {
+.cv-input-section {
   width: 100%;
   max-width: 400px;
+
+  padding: 1rem 2rem;
+  border: 2px dashed #213547;
+  border-radius: 1rem;
+
+  background-color: #d5dfe7;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px rgb(111, 255, 111), 4px 4px rgb(175, 175, 255);
+}
+
+p {
+  margin: 0;
+}
+
+.cv-input-section > p {
+  margin-bottom: 1rem;
+}
+
+.input-section {
+  margin-bottom: 1rem;
+}
+
+fieldset { 
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 fieldset.inactive {
@@ -20,8 +54,125 @@ fieldset.inactive > h2 {
   flex: 1;
 }
 
+fieldset > button {
+  margin: 0;
+  padding: 4px;
+  border: none;
+  border-radius: 2rem;
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+
+fieldset > button:hover {
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
 .input-cont {
   display: flex;
   flex-direction: column;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 4px;
+  font-size: 1.1rem;
+}
+
+input {
+  padding: 6px 8px;
+
+  color: #213547;
+  background-color: aliceblue;
+  border: 1px solid #E5E7EB;
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 1px 1px 8px 2px rgba(168, 168, 168, 0.19);
+
+  border: 1px solid #607f9c;
+}
+
+input:valid:required {
+  border: 1px solid green;
+}
+
+form > button {
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 0.6em 1.2em;
+  background-color: #eeeeee;
+  transition: border-color 0.5s;
+}
+
+form > button:hover {
+  border: 2px solid #607f9c;
+}
+
+form > button:focus,
+form > button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.city-country-cont {
+  margin-top: 4px;
+  display: flex;
+}
+
+.country-cont {
+  flex: 1;
+}
+
+.date-cont {
+  margin-top: 4px;
+  display: flex;
+}
+
+.cont-wrapper {
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  background-color: aliceblue;
+  border-radius: 8px;
+}
+
+.cont-heading-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.cont-heading-wrapper > h3 {
+  flex: 1;
+}
+
+.edit-btn {
+  margin-right: 6px;
+}
+
+.edit-btn,
+.del-btn {
+  padding: 3px;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: background-color 0.35s;
+}
+
+.edit-btn:hover,
+.del-btn:hover {
+  background-color: #d5dfe7;
+}
+
+.card-wrapper {
+  margin-top: 4px;
+  display: flex;
+}
+
+.card-info-cont {
+  flex: 1;
+}

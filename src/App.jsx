@@ -33,7 +33,7 @@ export default function App() {
         <h1>CV Builder</h1>
         <p>Build your CV by filling out different input sections below! You can view your CV while you build it!</p>
         <InputSection
-          className="personal-details"
+          className="input-section"
           sectionName="Personal Details"
           isActive={activeInputSection === 0}
           onShow={() => setActiveInputSection(0)}
@@ -44,7 +44,7 @@ export default function App() {
           />
         </InputSection>
         <InputSection
-          className="education"
+          className="input-section"
           sectionName="Education"
           isActive={activeInputSection === 1}
           onShow={() => setActiveInputSection(1)}
@@ -57,7 +57,7 @@ export default function App() {
           />
         </InputSection>
         <InputSection
-          className="work-history"
+          className="input-section"
           sectionName="Work History"
           isActive={activeInputSection === 2}
           onShow={() => setActiveInputSection(2)}
@@ -70,7 +70,7 @@ export default function App() {
           />
         </InputSection>
         <InputSection
-          className="skills"
+          className="input-section"
           sectionName="Skills"
           isActive={activeInputSection === 3}
           onShow={() => setActiveInputSection(3)}
