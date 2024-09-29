@@ -4,7 +4,9 @@ export function Input({
   name,
   data,
   handleChange,
-  placeholder
+  placeholder,
+  minlength = '2',
+  maxlength = '20',
 }) {
 	return (
     <>
@@ -18,6 +20,9 @@ export function Input({
         value={data}
         onChange={(e) => handleChange(e, name)}
         placeholder={placeholder}
+        minLength={minlength}
+        maxLength={maxlength}
+        required
       />
     </>
 	)

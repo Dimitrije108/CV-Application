@@ -18,7 +18,7 @@ import {
 
 export default function App() {
   const [activeInputSection, setActiveInputSection] = useState(0);
-  // all input section's states
+  // all input section states
   const [personalDetails, setPersonalDetails] = useState(initPersonalDetails);
   const [education, setEducation] = useState(initEducation);
   const [educationList, setEducationList] = useState(initEducationList);

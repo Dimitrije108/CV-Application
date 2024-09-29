@@ -1,7 +1,10 @@
+import { useRef } from 'react';
 import { Input } from './utils'
 import { initEducation } from './initData'
 
 export default function Education({ data, setData, list, setList }) {
+	const formRef = useRef(null);
+
 	function handleChange(e, name) {
     setData({
       ...data,
@@ -10,13 +13,18 @@ export default function Education({ data, setData, list, setList }) {
   }
   
   function handleList(e) {
-    e.preventDefault();
-    const newEntry = { ...data, id: crypto.randomUUID() }
-    setList([
-      ...list,
-      newEntry,
-    ])
-    setData(initEducation)
+		e.preventDefault();
+		 // Check if the form is valid
+		 if (formRef.current.checkValidity()) {
+      const newEntry = { ...data, id: crypto.randomUUID() }
+			setList([
+				...list,
+				newEntry,
+			])
+			setData(initEducation)
+    } else {
+      formRef.current.reportValidity();
+    }
   }
 
   function handleDel(itemId) {
@@ -32,45 +40,46 @@ export default function Education({ data, setData, list, setList }) {
 
 	return (
 		<div className="input-cont">
-			<Input 
-				label={"Degree"}
-				name={"degree"}
-				data={data.degree}
-				handleChange={handleChange}
-			/>
-			<Input 
-				label={"School"}
-				name={"school"}
-				data={data.school}
-				handleChange={handleChange}
-			/>
-			<Input 
-				label={"City"}
-				name={"city"}
-				data={data.city}
-				handleChange={handleChange}
-			/>
-			<Input 
-				label={"Start date"}
-				type={"month"}
-				name={"startDate"}
-				data={data.startDate}
-				handleChange={handleChange}
-			/>
-			<Input 
-				label={"End date"}
-				type={"month"}
-				name={"endDate"}
-				data={data.endDate}
-				handleChange={handleChange}
-			/>
-			<button
-				className="add-education-btn"
-				type="submit"
-				onClick={handleList}
-			>
-				Add
-			</button>
+			<form action="" ref={formRef} onSubmit={handleList}>
+				<Input
+					label={"Degree"}
+					name={"degree"}
+					data={data.degree}
+					handleChange={handleChange}
+				/>
+				<Input
+					label={"School"}
+					name={"school"}
+					data={data.school}
+					handleChange={handleChange}
+				/>
+				<Input
+					label={"City"}
+					name={"city"}
+					data={data.city}
+					handleChange={handleChange}
+				/>
+				<Input
+					label={"Start date"}
+					type={"month"}
+					name={"startDate"}
+					data={data.startDate}
+					handleChange={handleChange}
+				/>
+				<Input
+					label={"End date"}
+					type={"month"}
+					name={"endDate"}
+					data={data.endDate}
+					handleChange={handleChange}
+				/>
+				<button
+					className="add-education-btn"
+					type="submit"
+				>
+					Add
+				</button>
+			</form>
 			{list.map((item) => (
 				<div key={item.id}>
 					<h3>{item.degree}</h3>
