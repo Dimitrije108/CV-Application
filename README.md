@@ -1,8 +1,14 @@
-# React + Vite
+# CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple CV builder app which let's you type in your details on one side and see them displayed on CV on the other. There are 4 sections - Personal Details, Education, Work History and Skills. You can edit and delete education and work entries.
 
-Currently, two official plugins are available:
+### <a href="https://adorable-zuccutto-278cbb.netlify.app/">VIEW HERE!</a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Implementation/Features
+
+- Made my first app with React
+- Used React state, props, keys, jsx, etc
+
+---
+
+![preview](preview/preview.png)
