@@ -1,6 +1,8 @@
 import { useRef } from 'react';
-import { Input } from './utils'
-import { initEducation } from './initData'
+import { Input } from './utils';
+import { initEducation } from './initData';
+import editIcon from '/src/assets/edit-icon.svg';
+import closeIcon from '/src/assets/close-icon.svg';
 
 export default function Education({ data, setData, list, setList }) {
 	const formRef = useRef(null);
@@ -94,13 +96,13 @@ export default function Education({ data, setData, list, setList }) {
 							className='edit-btn'
 							onClick={() => handleEdit(item)}
 						>
-							<img src="/src/assets/edit-icon.svg" alt="" width="15px" height="15px" />
+							<img src={editIcon} alt="" width="15px" height="15px" />
 						</button>
 						<button
 							className='del-btn'
 							onClick={() => handleDel(item.id)}
 						>
-							<img src="/src/assets/close-icon.svg" alt="" width="15px" height="15px" />
+							<img src={closeIcon} alt="" width="15px" height="15px" />
 						</button>
 					</div>
 					<div className="card-wrapper">

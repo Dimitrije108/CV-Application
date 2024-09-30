@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './styles/App.css'
+import plusIcon from '/src/assets/plus-icon.svg';
 
 import PersonalDetails from './components/PersonalDetails'
 import Education from './components/Education'
@@ -103,7 +104,7 @@ function InputSection({ className, children, sectionName, isActive, onShow }) {
           children
         ) : (
           <button onClick={onShow}>
-            <img src="/src/assets/plus-icon.svg" alt="" width="30px" height="30px" />
+            <img src={plusIcon} alt="" width="30px" height="30px" />
           </button>
         )}
 			</fieldset>

@@ -1,5 +1,6 @@
 import { useRef } from 'react';
-import { Input } from './utils'
+import { Input } from './utils';
+import closeIcon from '/src/assets/close-icon.svg';
 
 export default function Skills({ data, setData, list, setList }) {
 	const formRef = useRef(null);
@@ -51,7 +52,7 @@ export default function Skills({ data, setData, list, setList }) {
 							className='del-btn'
 							onClick={() => handleDel(item.id)}
 						>
-							<img src="/src/assets/close-icon.svg" alt="" width="14px" height="14px" />
+							<img src={closeIcon} alt="" width="14px" height="14px" />
 						</button>
 					</div>
 				))}
