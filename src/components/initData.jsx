@@ -26,6 +26,14 @@ export const initEducationList = [
 		endDate: "2020-09",
 		id: crypto.randomUUID(),
 	},
+	{
+		degree: "Package design",
+		school: "Design school",
+		city: "Belgrade",
+		startDate: "2010-09",
+		endDate: "2014-06",
+		id: crypto.randomUUID(),
+	},
 ]
 
 export const initWorkHistory = {
@@ -44,7 +52,16 @@ export const initWorkHistoryList = [
 		location: "Belgrade",
 		startDate: "2021-05",
 		endDate: "2022-05",
-		jobDescription: "Help Desk Specialist for Self-Checkout machines",
+		jobDescription: "Help Desk Specialist for Self-Checkout machines.",
+		id: crypto.randomUUID(),
+	},
+	{
+		jobTitle: "Archaeologist",
+		company: "Zavod za zaštitu spomenika kulture",
+		location: "Pančevo",
+		startDate: "2018-10",
+		endDate: "2021-01",
+		jobDescription: "Writing and keeping the archaeological dig site journal, drawing archaeological finds, excavating the archeological site, etc.",
 		id: crypto.randomUUID(),
 	},
 ]

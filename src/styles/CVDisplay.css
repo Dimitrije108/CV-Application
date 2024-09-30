@@ -1,7 +1,94 @@
 .cv-display {
 	/* A4 paper representation */
-	min-width: 595px;
+	box-sizing: border-box;
+	width: 595px;
 	height: 842px;
+
+	padding: 2rem;
 	background-color: #ffffff;
 	box-shadow: 1px 1px 8px 2px rgba(168, 168, 168, 0.19);
+}
+
+.full-name {
+	color: #2266a1;
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+
+.job-title {
+	color: #2266a1;
+	font-size: 1.4rem;
+}
+
+.personal-info {
+	font-size: 0.9rem;
+	display: flex;
+}
+
+.contact-info,
+.location-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-info {
+	flex: 1;
+}
+
+.cv-position-cont {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr 2fr;
+	column-gap: 2rem;
+	grid-template-areas: 
+    "education skills"
+    "work-history skills";
+}
+
+.cv-education {
+	grid-area: education;
+}
+
+.cv-work-history {
+	grid-area: work-history;
+}
+
+.cv-skills {
+	grid-area: skills;
+}
+
+.cv-section-header {
+	margin-top: 10px;
+
+	color: #2266a1;
+	font-size: 1.2rem;
+	border-bottom: 1px solid #2266a1;
+}
+
+.cv-cont-item {
+	margin-top: 4px;
+	font-size: 0.8rem;
+}
+
+.cv-date-cont {
+	display: flex;
+	justify-content: space-between;
+}
+
+.job-desc-cont {
+	margin-top: 4px;
+}
+
+.cv-skills-cont {
+	margin-top: 4px;
+}
+
+.cv-skills-cont > div {
+	width: fit-content;
+	margin-top: 8px;
+	padding: 2px 4px;
+
+	font-size: 0.9rem;
+  border-radius: 4px;
+	background-color: aliceblue;
 }
