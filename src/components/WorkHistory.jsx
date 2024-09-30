@@ -59,20 +59,26 @@ export default function WorkHistory({ data, setData, list, setList }) {
 					data={data.location}
 					handleChange={handleChange}
 				/>
-				<Input
-					label={"Start date"}
-					type={"month"}
-					name={"startDate"}
-					data={data.startDate}
-					handleChange={handleChange}
-				/>
-				<Input
-					label={"End date"}
-					type={"month"}
-					name={"endDate"}
-					data={data.endDate}
-					handleChange={handleChange}
-				/>
+				<div className="date-input-cont">
+					<div>
+						<Input
+							label={"Start date"}
+							type={"month"}
+							name={"startDate"}
+							data={data.startDate}
+							handleChange={handleChange}
+						/>
+					</div>
+					<div className="end-date">
+						<Input
+							label={"End date"}
+							type={"month"}
+							name={"endDate"}
+							data={data.endDate}
+							handleChange={handleChange}
+						/>
+					</div>
+				</div>
 				<label>
 					{"Job description(Optional)"}
 				</label>
@@ -89,21 +95,33 @@ export default function WorkHistory({ data, setData, list, setList }) {
 				</button>
 			</form>
 			{list.map((item) => (
-				<div key={item.id}>
-					<h3>{item.jobTitle}</h3>
-					<p>{item.company}</p>
-					<p>{item.location}</p>
-					<div className="education-dates-cont">
-						<div>Start date: {item.startDate}</div>
-						<div>End date: {item.endDate}</div>
+				<div key={item.id} className="cont-wrapper">
+					<div className="cont-heading-wrapper">
+						<h3>{item.jobTitle}</h3>
+						<button
+							className='edit-btn'
+							onClick={() => handleEdit(item)}
+						>
+							<img src="/src/assets/edit-icon.svg" alt="" width="15px" height="15px" />
+						</button>
+						<button
+							className='del-btn'
+							onClick={() => handleDel(item.id)}
+						>
+							<img src="/src/assets/close-icon.svg" alt="" width="15px" height="15px" />
+						</button>
 					</div>
-					<p>{item.jobDescription}</p>
-					<button
-						onClick={() => handleEdit(item)}
-					>Edit</button>
-					<button
-						onClick={() => handleDel(item.id)}
-					>X</button>
+					<div className="card-wrapper">
+						<div className="card-info-cont">
+							<p>{item.company}</p>
+							<p>{item.location}</p>
+						</div>
+						<div className="dates-cont">
+							<div>Start date: {item.startDate}</div>
+							<div>End date: {item.endDate}</div>
+						</div>
+					</div>
+					<p className='jobDesc'>{item.jobDescription}</p>
 				</div>
 			))}
 		</div>

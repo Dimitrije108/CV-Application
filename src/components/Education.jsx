@@ -59,7 +59,7 @@ export default function Education({ data, setData, list, setList }) {
 					data={data.city}
 					handleChange={handleChange}
 				/>
-				<div className="date-cont">
+				<div className="date-input-cont">
 					<div>
 						<Input
 							label={"Start date"}
@@ -90,16 +90,18 @@ export default function Education({ data, setData, list, setList }) {
 				<div key={item.id} className="cont-wrapper">
 					<div className="cont-heading-wrapper">
 						<h3>{item.degree}</h3>
-						<button className='edit-btn'
-						onClick={() => handleEdit(item)}
-					>
-						<img src="/src/assets/edit-icon.svg" alt="" width="15px" height="15px" />
-					</button>
-					<button className='del-btn'
-						onClick={() => handleDel(item.id)}
-					>
-						<img src="/src/assets/close-icon.svg" alt="" width="15px" height="15px" />
-					</button>
+						<button 
+							className='edit-btn'
+							onClick={() => handleEdit(item)}
+						>
+							<img src="/src/assets/edit-icon.svg" alt="" width="15px" height="15px" />
+						</button>
+						<button
+							className='del-btn'
+							onClick={() => handleDel(item.id)}
+						>
+							<img src="/src/assets/close-icon.svg" alt="" width="15px" height="15px" />
+						</button>
 					</div>
 					<div className="card-wrapper">
 						<div className="card-info-cont">

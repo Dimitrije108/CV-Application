@@ -43,14 +43,19 @@ export default function Skills({ data, setData, list, setList }) {
 					Add
 				</button>
 			</form>
-			{list.map((item) => (
-				<div key={item.id}>
-					<div>{item.skill}</div>
-					<button
-						onClick={() => handleDel(item.id)}
-					>X</button>
-				</div>
-			))}
+			<div className="skill-list-cont">
+				{list.map((item) => (
+					<div key={item.id} className="skill-cont">
+						<div>{item.skill}</div>
+						<button
+							className='del-btn'
+							onClick={() => handleDel(item.id)}
+						>
+							<img src="/src/assets/close-icon.svg" alt="" width="14px" height="14px" />
+						</button>
+					</div>
+				))}
+			</div>
 		</div>
 	)
 }

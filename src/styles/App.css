@@ -12,23 +12,12 @@
   max-width: 400px;
 
   padding: 1rem 2rem;
-  border: 2px dashed #213547;
+  border: 1px solid #213547;
   border-radius: 1rem;
 
   background-color: #d5dfe7;
-}
 
-h1, h2, h3 {
-  margin: 0;
-}
-
-h1 {
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px rgb(111, 255, 111), 4px 4px rgb(175, 175, 255);
-}
-
-p {
-  margin: 0;
+  align-self: start;
 }
 
 .cv-input-section > p {
@@ -36,13 +25,7 @@ p {
 }
 
 .input-section {
-  margin-bottom: 1rem;
-}
-
-fieldset { 
-  border: none;
-  margin: 0;
-  padding: 0;
+  margin-bottom: 8px;
 }
 
 fieldset.inactive {
@@ -72,42 +55,12 @@ fieldset > button:hover {
   flex-direction: column;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-top: 4px;
-  font-size: 1.1rem;
-}
-
-input {
-  padding: 6px 8px;
-
-  color: #213547;
-  background-color: aliceblue;
-  border: 1px solid #E5E7EB;
-  border-radius: 4px;
-}
-
-input:focus {
-  outline: none;
-  box-shadow: 1px 1px 8px 2px rgba(168, 168, 168, 0.19);
-
-  border: 1px solid #607f9c;
-}
-
-input:valid:required {
-  border: 1px solid green;
-}
-
 form > button {
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem 0;
   border-radius: 8px;
   border: 2px solid transparent;
   padding: 0.6em 1.2em;
-  background-color: #eeeeee;
+  background-color: #d2ffd0;
   transition: border-color 0.5s;
 }
 
@@ -129,12 +82,13 @@ form > button:focus-visible {
   flex: 1;
 }
 
-.date-cont {
+.date-input-cont {
   margin-top: 4px;
   display: flex;
 }
 
 .cont-wrapper {
+  margin-top: 0.5rem;
   padding: 0.6rem 1rem;
   font-size: 0.8rem;
   background-color: aliceblue;
@@ -169,10 +123,33 @@ form > button:focus-visible {
 }
 
 .card-wrapper {
-  margin-top: 4px;
+  margin-top: 2px;
   display: flex;
 }
 
 .card-info-cont {
   flex: 1;
 }
+
+.jobDesc {
+  margin-top: 6px;
+}
+
+.skill-list-cont {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-cont {
+  padding: 2px 4px;
+
+  border-radius: 4px;
+  background-color: aliceblue;
+
+  display: flex;
+}
+
+.skill-cont > div {
+  margin-right: 4px;
+} 
